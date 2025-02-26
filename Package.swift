@@ -16,7 +16,8 @@ let package = Package(
             targets: [
 				"Artworks",
 				"CIArtworks",
-			]),
+			]
+		)
     ],
 	dependencies: [
 		.package(url: "https://github.com/Ars-Tools/fcikernel", exact: .init(0, 0, 0))
@@ -29,12 +30,12 @@ let package = Package(
 		.target(
 			name: "CIArtworks",
 			dependencies: [
-				"Artworks",
+				"Artworks"
 			],
 			path: "CIArtworks/Sources",
 			plugins: [
 				.plugin(name: "ci.metal", package: "fcikernel")
 			]
-		),
+		)
     ]
 )
