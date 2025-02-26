@@ -11,10 +11,10 @@ let package = Package(
 		.macOS(.v15),
 	],
     products: [
-		.executable(
-			name: "Snippets",
-			targets: ["Snippets"]
-		),
+//		.executable(
+//			name: "Snippets",
+//			targets: ["Snippets"]
+//		),
         .library(
             name: "Graphics",
             targets: [
