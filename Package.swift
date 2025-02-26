@@ -28,7 +28,11 @@ let package = Package(
 		),
 		.target(
 			name: "CIArtworks",
-			dependencies: ["Artworks"],
+			dependencies: [
+				"Artworks",
+				"fcikernel",
+//				.productItem(name: "ci.metal", package: "fcikernel", moduleAliases: .none, condition: .none)
+			],
 			path: "CIArtworks/Sources",
 			plugins: [
 				.plugin(name: "ci.metal", package: "fcikernel")
