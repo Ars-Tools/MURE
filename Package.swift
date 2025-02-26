@@ -11,10 +11,6 @@ let package = Package(
 		.macOS(.v15),
 	],
     products: [
-//		.executable(
-//			name: "Snippets",
-//			targets: ["Snippets"]
-//		),
         .library(
             name: "Graphics",
             targets: [
@@ -22,16 +18,17 @@ let package = Package(
 				"CIArtworks",
 			]),
     ],
+	dependencies: [
+		.package(url: "https://github.com/Ars-Tools/fcikernel", exact: .init(0, 0, 0))
+	],
     targets: [
-//		.executableTarget(
-//			name: "Snippets",
-//			dependencies: [
-//				.targetItem(name: "Artworks", condition: .none),
-//				.targetItem(name: "CIArtworks", condition: .none),
-//				.productItem(name: "Graphics", package: .none, moduleAliases: .none, condition: .none)
-//			],
-//			path: "Snippets/Sources"
-//		),
+		.executableTarget(
+			name: "Snippets",
+			dependencies: [
+				.productItem(name: "Graphics", package: .none, moduleAliases: .none, condition: .none)
+			],
+			path: "Snippets/Sources"
+		),
 		.target(
 			name: "Artworks",
 			path: "Artworks/Sources"
@@ -39,7 +36,11 @@ let package = Package(
 		.target(
 			name: "CIArtworks",
 			dependencies: ["Artworks"],
-			path: "CIArtworks/Sources"
-		)
+			path: "CIArtworks/Sources",
+			plugins: [
+				.plugin(name: "ci.metal")
+			]
+		),
+//		.plugin(name: "ci.metal", capability: .buildTool, path: "PlugIns/Sources")
     ]
 )
