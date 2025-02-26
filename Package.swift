@@ -34,7 +34,7 @@ let package = Package(
 			],
 			path: "CIArtworks/Sources",
 			plugins: [
-				.plugin(name: "ci.metal", package: "fcikernel")
+				.plugin(name: "fcikernel", package: "fcikernel")
 			]
 		)
     ]
