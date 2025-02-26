@@ -19,18 +19,15 @@ let package = Package(
 			]
 		)
     ],
-	dependencies: [
-		.package(url: "https://github.com/Ars-Tools/fcikernel", from: .init(0, 0, 0)),
-	],
     targets: [
-		.executableTarget(
-			name: "Snippets",
-			dependencies: [
-				"Artworks",
-				"CIArtworks"
-			],
-			path: "Snippets/Sources"
-		),
+//		.executableTarget(
+//			name: "Snippets",
+//			dependencies: [
+//				"Artworks",
+//				"CIArtworks"
+//			],
+//			path: "Snippets/Sources"
+//		),
 		.target(
 			name: "Artworks",
 			path: "Artworks/Sources"
@@ -42,8 +39,13 @@ let package = Package(
 			],
 			path: "CIArtworks/Sources",
 			plugins: [
-				.plugin(name: "fcikernel", package: "fcikernel")
+				.plugin(name: "PlugIns")
 			]
+		),
+		.plugin(
+			name: "PlugIns",
+			capability: .buildTool,
+			path: "PlugIns/Sources"
 		)
     ]
 )

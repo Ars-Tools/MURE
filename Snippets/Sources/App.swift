@@ -14,7 +14,7 @@ struct App: SwiftUI.App {
 	var body: some Scene {
 		WindowGroup {
 			Text("Hello World")
-			Canvas(artwork: ciColor)
+			Canvas(artwork: testCustomFilter())
 				.onAppear {
 					DispatchQueue.global().asyncAfter(deadline: .now() + 3) {
 						Task { @MainActor in
