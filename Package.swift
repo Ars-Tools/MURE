@@ -20,7 +20,7 @@ let package = Package(
 		)
     ],
 	dependencies: [
-		.package(url: "https://github.com/Ars-Tools/fcikernel", branch: "develop"),
+		.package(url: "https://github.com/Ars-Tools/fcikernel", from: .init(0, 0, 0)),
 	],
     targets: [
 		.target(
