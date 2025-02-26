@@ -23,15 +23,15 @@ let package = Package(
 			]),
     ],
     targets: [
-		.executableTarget(
-			name: "Snippets",
-			dependencies: [
-				.targetItem(name: "Artworks", condition: .none),
-				.targetItem(name: "CIArtworks", condition: .none),
+//		.executableTarget(
+//			name: "Snippets",
+//			dependencies: [
+//				.targetItem(name: "Artworks", condition: .none),
+//				.targetItem(name: "CIArtworks", condition: .none),
 //				.productItem(name: "Graphics", package: .none, moduleAliases: .none, condition: .none)
-			],
-			path: "Snippets/Sources"
-		),
+//			],
+//			path: "Snippets/Sources"
+//		),
 		.target(
 			name: "Artworks",
 			path: "Artworks/Sources"
