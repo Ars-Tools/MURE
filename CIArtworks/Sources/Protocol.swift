@@ -15,7 +15,7 @@ public protocol CIArtwork: Artwork {
 	var outputImage: Optional<CIImage> { get }
 }
 extension CIArtwork {
-	public func callAsFunction(colorspace: Optional<CGColorSpace>, pixelFormat: MTLPixelFormat, mtlCommandQueue: any MTLCommandQueue) throws -> (CFTimeInterval, MTLTexture, MTLCommandBuffer) -> Void {
+	public func callAsFunction(colorspace: Optional<CGColorSpace>, pixelFormat: MTLPixelFormat, mtlCommandQueue: MTLCommandQueue) throws -> (CFTimeInterval, MTLTexture, MTLCommandBuffer) -> Void {
 		let ciContext = CIContext(mtlCommandQueue: mtlCommandQueue, options: [
 			.outputColorSpace: colorspace as Any
 		])
@@ -28,6 +28,7 @@ extension CIArtwork {
 					throw Error.noOutputImageFound
 				}
 			} catch {
+				print(error)
 				os_log(.error, log: log, "%{public}@", error.localizedDescription)
 			}
 		}
