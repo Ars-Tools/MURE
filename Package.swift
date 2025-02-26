@@ -22,13 +22,6 @@ let package = Package(
 		.package(url: "https://github.com/Ars-Tools/fcikernel", exact: .init(0, 0, 0))
 	],
     targets: [
-		.executableTarget(
-			name: "Snippets",
-			dependencies: [
-				.productItem(name: "Graphics", package: .none, moduleAliases: .none, condition: .none)
-			],
-			path: "Snippets/Sources"
-		),
 		.target(
 			name: "Artworks",
 			path: "Artworks/Sources"
