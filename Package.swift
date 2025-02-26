@@ -2,23 +2,44 @@
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
-
 let package = Package(
     name: "MURE",
+	platforms: [
+		.iOS(.v18),
+		.tvOS(.v18),
+		.macCatalyst(.v18),
+		.macOS(.v15),
+	],
     products: [
-        // Products define the executables and libraries a package produces, making them visible to other packages.
+//		.executable(
+//			name: "Snippets",
+//			targets: ["Snippets"]
+//		),
         .library(
-            name: "MURE",
-            targets: ["MURE"]),
+            name: "Graphics",
+            targets: [
+				"Artworks",
+				"CIArtworks",
+			]),
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
-        .target(
-            name: "MURE"),
-        .testTarget(
-            name: "MURETests",
-            dependencies: ["MURE"]
-        ),
+		.executableTarget(
+			name: "Snippets",
+			dependencies: [
+//				.targetItem(name: "Artworks", condition: .none),
+//				.targetItem(name: "CIArtworks", condition: .none),
+				.productItem(name: "Graphics", package: .none, moduleAliases: .none, condition: .none)
+			],
+			path: "Snippets/Sources"
+		),
+		.target(
+			name: "Artworks",
+			path: "Artworks/Sources"
+		),
+		.target(
+			name: "CIArtworks",
+			dependencies: ["Artworks"],
+			path: "CIArtworks/Sources"
+		)
     ]
 )
