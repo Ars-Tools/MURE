@@ -30,8 +30,7 @@ let package = Package(
 			name: "CIArtworks",
 			dependencies: [
 				"Artworks",
-				"fcikernel",
-//				.productItem(name: "ci.metal", package: "fcikernel", moduleAliases: .none, condition: .none)
+				.productItem(name: "ci.metal", package: "fcikernel", moduleAliases: .none, condition: .none)
 			],
 			path: "CIArtworks/Sources",
 			plugins: [
