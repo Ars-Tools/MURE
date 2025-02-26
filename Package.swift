@@ -35,7 +35,8 @@ let package = Package(
 		.target(
 			name: "CIArtworks",
 			dependencies: [
-				"Artworks"
+				"Artworks",
+				"PlugIns"
 			],
 			path: "CIArtworks/Sources",
 			plugins: [
